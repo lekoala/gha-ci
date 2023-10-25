@@ -461,6 +461,9 @@ jobs:
             if [[ "${{ matrix.db }}" == "pgsql" ]] && ! [[ $GITHUB_REPOSITORY =~ /silverstripe-postgresql$ ]]; then
               composer require "silverstripe/postgresql:^2 || ^3" --no-update
             fi
+            if [[ "${{ matrix.db }}" == "sqlite3" ]]
+              sudo apt install sqlite3 -y
+            fi
             if [[ "${{ matrix.db }}" == "sqlite3" ]] && ! [[ $GITHUB_REPOSITORY =~ /silverstripe-sqlite3$ ]]; then
               composer require "silverstripe/sqlite3:^2 || ^3" --no-update
             fi
